@@ -3,141 +3,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Automation Workflows Portfolio</title>
+  <title>Automation Workflows Hub</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text: #0f172a;
-      --text-muted: #475569;
-      --border: #e2e8f0;
-      --primary: #2563eb;
-      --primary-hover: #1d4ed8;
-      --sheets: #0f766e;
-      --sheets-hover: #115e59;
-      --drive: #d97706;
-      --drive-hover: #b45309;
+      --bg-gradient: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #0f172a 100%);
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(56, 189, 248, 0.15);
+      --card-border-hover: rgba(56, 189, 248, 0.4);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      
+      /* Chromatic Blue Accents */
+      --cyan-glow: #38bdf8;
+      --blue-accent: #2563eb;
+      --teal-accent: #0d9488;
+      --amber-accent: #d97706;
     }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
       margin: 0;
-      padding: 2rem 1rem;
+      padding: 3rem 1.5rem;
+      display: flex;
+      justify-content: center;
     }
+
     .container {
-      max-width: 800px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: 820px;
     }
+
     header {
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 1.5rem;
     }
-    h1 { margin: 0 0 0.5rem 0; font-size: 2rem; color: var(--text); }
-    p.subtitle { color: var(--text-muted); margin: 0; font-size: 1.05rem; }
-    
-    /* Master Link Banner */
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 20px;
+      color: var(--cyan-glow);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    /* Master Drive Hero Card */
     .master-card {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      border-radius: 10px;
-      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(15, 23, 42, 0.6) 100%);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
       margin-bottom: 2rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
+      gap: 1.5rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     }
-    .master-card-info h2 { margin: 0 0 0.25rem 0; font-size: 1.25rem; color: #1e40af; }
-    .master-card-info p { margin: 0; color: #1e3a8a; font-size: 0.95rem; }
-    
-    /* Section Cards */
+
+    .master-info h2 {
+      margin: 0 0 0.25rem 0;
+      font-size: 1.2rem;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .master-info p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
+
+    /* Workflow Cards */
     .card {
       background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: 10px;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
       padding: 1.75rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      backdrop-filter: blur(10px);
+      transition: all 0.25s ease;
     }
-    .card h3 { margin-top: 0; font-size: 1.35rem; color: var(--text); }
-    .card p { color: var(--text-muted); margin-bottom: 1.25rem; }
 
-    /* Button Group & Base Buttons */
+    .card:hover {
+      border-color: var(--card-border-hover);
+      box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.25rem;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      margin: 0 0 1.5rem 0;
+      line-height: 1.6;
+    }
+
+    /* Modern Tech Action Buttons */
     .btn-group {
       display: flex;
       flex-wrap: wrap;
       gap: 0.75rem;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.1rem;
-      color: #ffffff;
+      gap: 0.6rem;
+      padding: 0.65rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 500;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: background-color 0.2s ease, transform 0.1s ease;
+      transition: all 0.2s ease;
+      cursor: pointer;
     }
-    .btn:hover { transform: translateY(-1px); }
-    
-    .btn-drive { background-color: var(--drive); }
-    .btn-drive:hover { background-color: var(--drive-hover); }
 
-    .btn-sheets { background-color: var(--sheets); }
-    .btn-sheets:hover { background-color: var(--sheets-hover); }
+    .btn svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
 
-    .btn-n8n { background-color: var(--primary); }
-    .btn-n8n:hover { background-color: var(--primary-hover); }
+    .btn-drive {
+      background: rgba(217, 119, 6, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(217, 119, 6, 0.3);
+    }
+    .btn-drive:hover {
+      background: rgba(217, 119, 6, 0.25);
+      border-color: #fbbf24;
+    }
+
+    .btn-sheets {
+      background: rgba(13, 148, 136, 0.15);
+      color: #2dd4bf;
+      border: 1px solid rgba(13, 148, 136, 0.3);
+    }
+    .btn-sheets:hover {
+      background: rgba(13, 148, 136, 0.25);
+      border-color: #2dd4bf;
+    }
+
+    .btn-n8n {
+      background: rgba(37, 99, 235, 0.15);
+      color: #60a5fa;
+      border: 1px solid rgba(37, 99, 235, 0.3);
+    }
+    .btn-n8n:hover {
+      background: rgba(37, 99, 235, 0.25);
+      border-color: #60a5fa;
+    }
+
+    @media (max-width: 640px) {
+      .master-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>Automation & Workflow Deliverables</h1>
-      <p class="subtitle">Interactive repository hub for project workflows, Google Sheets logs, and file storage.</p>
+      <span class="badge">System Integration</span>
+      <h1>Automation Deliverables</h1>
+      <p class="subtitle">Central repository for project workflows, data extraction logs, and execution storage.</p>
     </header>
 
-    <!-- Overall Google Drive Top Banner -->
     <div class="master-card">
-      <div class="master-card-info">
-        <h2>Overall Project Google Drive</h2>
-        <p>Access the complete folder hierarchy containing all execution records and file outputs.</p>
+      <div class="master-info">
+        <h2>Overall Google Drive Directory</h2>
+        <p>Access the complete root folder hierarchy and raw file outputs.</p>
       </div>
       <a href="https://drive.google.com/drive/folders/193zy3KeyXysiH9LtUKL0u6pGahFwrvOC?usp=drive_link" class="btn btn-drive" target="_blank" rel="noopener">
-        📁 Open Overall Drive
+        <svg viewBox="0 0 24 24"><path d="M19 20H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2z"/></svg>
+        Open Root Drive
       </a>
     </div>
 
-    <!-- Workflow 1: Telegram Receipt Photo Processing -->
     <div class="card">
       <h3>1. Telegram Receipt Photo Processing</h3>
-      <p>Automated pipeline that receives receipt photos via Telegram, analyzes text with Gemini AI, logs extracted amounts/merchants to Google Sheets, and sorts original files into date-based Google Drive folders.</p>
+      <p>Automated pipeline that receives receipt images via Telegram, parses extracted details via Gemini AI, appends line items to Google Sheets, and saves structured media to date-indexed Drive folders.</p>
       <div class="btn-group">
         <a href="https://docs.google.com/spreadsheets/d/1aTythvSfY086PkoXBZAg-BoGEQji2rqG6IUj1aKmyW4/edit?usp=drive_link" class="btn btn-sheets" target="_blank" rel="noopener">
-          📊 Telegram Google Sheet
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+          Google Sheet Log
         </a>
         <a href="./Telegram Receipt Photo Processing.json" class="btn btn-n8n" download>
-          ⚡ Download n8n Workflow (.json)
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download n8n JSON
         </a>
       </div>
     </div>
 
-    <!-- Workflow 2: Gmail Multi-Label to Sheets & Drive -->
     <div class="card">
       <h3>2. Gmail Multi-Label to Sheets & Drive</h3>
-      <p>System that polls unread client email queries, extracts sender metadata and labels into Google Sheets, and organizes email attachments into structured label and sender subfolders on Google Drive.</p>
+      <p>Automated inbox monitor that processes incoming client emails, indexes sender metadata into Google Sheets, and organizes email attachments into designated folder structures on Google Drive.</p>
       <div class="btn-group">
         <a href="https://docs.google.com/spreadsheets/d/1Egp1oKkMZ2E5VwNFlMcyUrZtadUY0Jvrn5zUQkg6kPY/edit?usp=drive_link" class="btn btn-sheets" target="_blank" rel="noopener">
-          📊 Gmail Google Sheet
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/></svg>
+          Google Sheet Log
         </a>
         <a href="./Gmail Multi-Label to Sheets & Drive.json" class="btn btn-n8n" download>
-          ⚡ Download n8n Workflow (.json)
+          <svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+          Download n8n JSON
         </a>
       </div>
     </div>
