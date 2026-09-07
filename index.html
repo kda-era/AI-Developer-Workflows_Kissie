@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automation Workflows Portfolio</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --sheets: #0f766e;
+      --sheets-hover: #115e59;
+      --drive: #d97706;
+      --drive-hover: #b45309;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1.5rem;
+    }
+    h1 { margin: 0 0 0.5rem 0; font-size: 2rem; color: var(--text); }
+    p.subtitle { color: var(--text-muted); margin: 0; font-size: 1.05rem; }
+    
+    /* Master Link Banner */
+    .master-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .master-card-info h2 { margin: 0 0 0.25rem 0; font-size: 1.25rem; color: #1e40af; }
+    .master-card-info p { margin: 0; color: #1e3a8a; font-size: 0.95rem; }
+    
+    /* Section Cards */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .card h3 { margin-top: 0; font-size: 1.35rem; color: var(--text); }
+    .card p { color: var(--text-muted); margin-bottom: 1.25rem; }
+
+    /* Button Group & Base Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease, transform 0.1s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    
+    .btn-drive { background-color: var(--drive); }
+    .btn-drive:hover { background-color: var(--drive-hover); }
+
+    .btn-sheets { background-color: var(--sheets); }
+    .btn-sheets:hover { background-color: var(--sheets-hover); }
+
+    .btn-n8n { background-color: var(--primary); }
+    .btn-n8n:hover { background-color: var(--primary-hover); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Automation & Workflow Deliverables</h1>
+      <p class="subtitle">Interactive repository hub for project workflows, Google Sheets logs, and file storage.</p>
+    </header>
+
+    <!-- Overall Google Drive Top Banner -->
+    <div class="master-card">
+      <div class="master-card-info">
+        <h2>Overall Project Google Drive</h2>
+        <p>Access the complete folder hierarchy containing all execution records and file outputs.</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/193zy3KeyXysiH9LtUKL0u6pGahFwrvOC?usp=drive_link" class="btn btn-drive" target="_blank" rel="noopener">
+        📁 Open Overall Drive
+      </a>
+    </div>
+
+    <!-- Workflow 1: Telegram Receipt Photo Processing -->
+    <div class="card">
+      <h3>1. Telegram Receipt Photo Processing</h3>
+      <p>Automated pipeline that receives receipt photos via Telegram, analyzes text with Gemini AI, logs extracted amounts/merchants to Google Sheets, and sorts original files into date-based Google Drive folders.</p>
+      <div class="btn-group">
+        <a href="https://docs.google.com/spreadsheets/d/1aTythvSfY086PkoXBZAg-BoGEQji2rqG6IUj1aKmyW4/edit?usp=drive_link" class="btn btn-sheets" target="_blank" rel="noopener">
+          📊 Telegram Google Sheet
+        </a>
+        <a href="./Telegram Receipt Photo Processing.json" class="btn btn-n8n" download>
+          ⚡ Download n8n Workflow (.json)
+        </a>
+      </div>
+    </div>
+
+    <!-- Workflow 2: Gmail Multi-Label to Sheets & Drive -->
+    <div class="card">
+      <h3>2. Gmail Multi-Label to Sheets & Drive</h3>
+      <p>System that polls unread client email queries, extracts sender metadata and labels into Google Sheets, and organizes email attachments into structured label and sender subfolders on Google Drive.</p>
+      <div class="btn-group">
+        <a href="https://docs.google.com/spreadsheets/d/1Egp1oKkMZ2E5VwNFlMcyUrZtadUY0Jvrn5zUQkg6kPY/edit?usp=drive_link" class="btn btn-sheets" target="_blank" rel="noopener">
+          📊 Gmail Google Sheet
+        </a>
+        <a href="./Gmail Multi-Label to Sheets & Drive.json" class="btn btn-n8n" download>
+          ⚡ Download n8n Workflow (.json)
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
